@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#include <credentials_and_stuff.h>
+#include <credentials.h>
 
 #include <ESP8266WiFi.h>
 #include <AsyncMqttClient.h>
