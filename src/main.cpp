@@ -33,8 +33,8 @@ void readSensorAndPublishData()
 {
     Serial.println("readSensorAndPublishData() call");
 
-    mqttClient.publish((String(MQTT_BASE_TOPIC) + "temperature").c_str(), 1, true, temperature.c_str());
-    mqttClient.publish((String(MQTT_BASE_TOPIC) + "humidity").c_str(), 1, true, humidity.c_str());
+    mqttClient.publish((String(MQTT_BASE_TOPIC) + "temperature").c_str(), MQTT_QOS, true, temperature.c_str());
+    mqttClient.publish((String(MQTT_BASE_TOPIC) + "humidity").c_str(), MQTT_QOS, true, humidity.c_str());
 }
 
 void connectToWifi()
@@ -56,7 +56,7 @@ void onMqttConnect(bool sessionPresent)
 {
     Serial.println("Connected to MQTT.");
     readSensorAndPublishData();
-    mqttPublishTicker.attach(20, readSensorAndPublishData);
+    mqttPublishTicker.attach(MQTT_PUBLISH_INTERVAL, readSensorAndPublishData);
 }
 
 void onMqttDisconnect(AsyncMqttClientDisconnectReason reason)
