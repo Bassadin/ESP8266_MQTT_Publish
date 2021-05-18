@@ -1,4 +1,4 @@
-// Rename to "credentials.h" to use with main.cpp
+// Rename to "env.h" to use with main.cpp
 #define WIFI_PASSWORD "*****"
 #define WIFI_SSID "*****"
 #define WIFI_HOSTNAME "ESP-MQTT-Client" //ESP hostname
